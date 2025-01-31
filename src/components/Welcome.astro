@@ -1,0 +1,105 @@
+---
+import Section from "../components/Section.astro";
+import Card from "../components/Card.astro";
+import EmailIcon from "../icons/email.astro";
+import MailboxIcon from "../icons/mailbox.astro";
+import BookIcon from "../icons/book.astro";
+import OfficeIcon from "../icons/office.astro";
+
+const CardsOptions = [
+	{
+		title: "Biblioteca Digital Alfaomega",
+		description: "Ingresa y conoce de manera digital la información.",
+		image: "/img/omega.webp",
+		link: "https://tesixtapaluca.bibliotecasdigitales.com/auth/login",
+	},
+	{
+		title: "Biblioteca Digital eLibro",
+		description: "Ingresa y conoce de manera digital la información.",
+		image: "/img/eLibro.webp",
+		link: "https://elibro.net/es/lc/tesi/login_usuario/?next=/es/lc/tesi/inicio/",
+	},
+	{
+		title: "Trámites y Servicios de Escolares",
+		description: "Consulta los formatos emitidos por control escolar.",
+		image: "/img/apoyo-tecnico.webp",
+		link: "/tramites_servicios",
+	},
+	{
+		title: "Servicio Social y Residencias Profesionales",
+		description:
+			"Conoce las convocatorias y requisitos para realizar tu trámite.",
+		image: "/img/ssrp.webp",
+		link: "/control_escolar",
+	},
+];
+
+const CardsInfo = [
+	{
+		title: "Correo Institucional",
+		description: "Accesa al correo y conoce las herramientas de la plataforma.",
+		image: OfficeIcon,
+		link: "https://www.office.com/",
+	},
+	{
+		title: "Becas TESI",
+		description: "Conoce las becas disponibles ¡Postúlate! ",
+		image: EmailIcon,
+		link: "/control_escolar",
+	},
+	{
+		title: "Buzón de Quejas",
+		description: "¿Alguna anomalía? Escríbenos.",
+		image: MailboxIcon,
+		link: "https://tesi.org.mx/buzon_tesi.php",
+	},
+	{
+		title: "Directorio de Emergencias",
+		description: "En caso de emergencia conoce los teléfonos esenciales",
+		image: BookIcon,
+		link: "https://tesixtapaluca.edomex.gob.mx/sites/tesixtapaluca.edomex.gob.mx/files/images/cuadradas/directorioservicios.pdf",
+	},
+];
+---
+
+<Section class="mt-20">
+	<div class="flex justify-center items-center">
+		<a
+			href="https://edomex.gob.mx/sites/edomex.gob.mx/files/files/Convocatoria_preregisto.pdf"
+			class="w-full"
+		>
+			<img
+				src="/img/Banner_convocatoria_preregistro.webp"
+				class="w-full"
+				alt="..."
+			/>
+		</a>
+	</div>
+	<div
+		class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-16"
+	>
+		{CardsOptions.map((card) => <Card {...card} />)}
+	</div>
+	<div
+		class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-16 border-t-2 border-t-slate-300 pt-5"
+	>
+		{
+			CardsInfo.map((card) => (
+				<a
+					href={card.link}
+					class="bg-slate-300/50 px-5 py-10 w-full rounded-lg shadow-lg shadow-slate-900/50 hover:bg-slate-300 hover:scale-105 transition-all duration-300"
+				>
+					<div class="flex justify-center">
+						<card.image class="size-25 text-red-900"/>
+					</div>
+					<div class="flex justify-between flex-col">
+						<h3 class="text-2xl text-center font-bold mt-2">
+							{card.title}
+						</h3>
+						<p class="text-lg mt-2 text-pretty">{card.description}</p>
+					</div>
+				</a>
+			))
+		}
+	</div>
+</Section>

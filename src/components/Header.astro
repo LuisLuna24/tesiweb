@@ -1,0 +1,101 @@
+---
+import TesiLogo from "../icons/TesiLogo.astro";
+import MenuIcon from "../icons/MunuIcon.astro";
+
+const navLinks = [
+    {
+        title: "Inicio",
+        link: "/",
+    },
+    {
+        title: "Acerca de TESI",
+        link: "/tesi",
+    },
+    {
+        title: "Oferta Educatica",
+        link: "/oferta_educativa",
+    },
+    {
+        title: "Control Escolar",
+        link: "/control_escolar",
+    },
+    {
+        title: "Extencion y Vinculacion",
+        link: "/extencion_vinculacion",
+    },
+    {
+        title: "Tramites y Servicios",
+        link: "/tramites_servicios",
+    },
+    {
+        title: "Legalidad",
+        link: "/legalidad",
+    },
+];
+---
+
+<header class="px-10 md:px-30 bg-slate-200 py-5">
+    <div class="flex flex-col">
+        <div
+            class="flex justify-between items-center flex-col md:flex-row py-3"
+        >
+            <div>
+                <TesiLogo />
+            </div>
+            <div>
+                <h1
+                    class="text-2xl text-red-900 font-bold text-center md:text-start"
+                >
+                    Tecnológico de Estudios Superiores de Ixtapaluca
+                </h1>
+            </div>
+        </div>
+        <div class="text-2xl text-center py-3 border-t-4 border-t-red-900">
+            <h2 class="text-amber-700">
+                Secretaría de Educación, Ciencia, Tecnología e Innovación
+            </h2>
+        </div>
+    </div>
+    <div class="flex justify-end lg:hidden">
+        <a href="/" id="toggleButton" class="cursor-pointer"><MenuIcon /></a>
+    </div>
+    <nav id="nav" class="w-auto h-0 lg:h-auto overflow-hidden transition-all duration-300 lg:gap-x-5">
+        <ul class="flex lg:justify-between flex-col lg:flex-row py-3 gap-y-8 ">
+            {
+                navLinks.map((navLink) => (
+                    <a
+                        class:list={{
+                            "opacity-80": Astro.url.pathname !== navLink.link,
+                            "opacity-100 text-red-900 font-bold": Astro.url.pathname === navLink.link,
+                            "hover:opacity-100 hover:scale-110 transition": true,
+                        }}
+                        href={navLink.link}
+                    >
+                        {navLink.title}
+                    </a>
+                ))
+            }
+        </ul>
+    </nav>
+</header>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+		const nav = document.querySelector("#nav") as Element;
+		const button = document.querySelector("#toggleButton") as Element;
+		let open = false;
+
+		button.addEventListener("click", () => {
+			open = !open;
+			if (open) {
+				nav.classList.add("h-auto", "p-4"); // Ancho del menú y padding
+				nav.classList.remove("h-0", "overflow-hidden");
+			} else {
+				nav.classList.remove("h-auto", "p-4");
+				nav.classList.add("h-0", "overflow-hidden");
+			}
+		});
+	});
+</script>
+
+

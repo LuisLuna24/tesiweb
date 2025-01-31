@@ -1,0 +1,42 @@
+---
+import "@fontsource-variable/onest";
+import "../../public/styles/global.css";
+import Header from "../components/Header.astro";
+
+const { title } = Astro.props;
+
+import { ClientRouter } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<ClientRouter />
+		<title>TESI</title>
+		<meta name="description" content="El Tecnológico de Estudios Superiores de Ixtapaluca (TESI), es una Institución Pública que ofrece educación superior de excelencia, con el fin de formar profesionistas, emprendedores e investigadores competentes, con sólida preparación científica, tecnológica y humanística, que contribuyan a elevar la calidad de vida de la sociedad." />
+		<script src="../../public/js/navbar.js"></script>
+	</head>
+	<body class="bg-slate-100">
+		<Header />
+
+		<slot />
+
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
