@@ -1,0 +1,105 @@
+---
+
+import Content from "../Content.astro";
+import Arrow from "@/icons/arrow.astro";
+
+const Carreras = [
+  {
+    name: "Ingeniería en Sistemas Computacionales.",
+  },
+  {
+    name: "Ingeniería Ambiental.",
+  },
+  {
+    name: "Ingeniería Electrónica.",
+  },
+  {
+    name: "Ingeniería  Informática.",
+  },
+  {
+    name: "Licenciatura en Administración.",
+  },
+  {
+    name: "Ingeniería Biomédica.",
+  },
+  {
+    name: "Arquitectura.",
+  },
+];
+---
+
+<Content class="flex flex-col gap-5">
+  <h1 class="text-red-900 text-4xl font-bold">Antecedentes</h1>
+  <article class="prose lg:prose-xl">
+    <h2 class="text-red-900 text-2xl font-semibold">
+      Historia de Nuestro Tecnológico
+    </h2>
+    <p class="text-pretty">
+      Si te preguntas ¿Cómo comenzó todo?, ¿Cuándo abrió sus puertas nuestro
+      Tecnológico?, ¿Cómo eran sus instalaciones?
+    </p>
+    <br />
+    <p class="text-pretty">
+      El saber cómo inició nuestra institución hace que nos sintamos
+      identificados con ella, nos acerca y concientiza de la gran labor de los
+      que en ella laboran, al igual que nos enorgullecemos constantemente del
+      crecimiento y prestigio que se ha logrado a lo largo del tiempo.
+    </p>
+  </article>
+
+  <article class="prose lg:prose-xl">
+    <h3 class="text-red-900 text-2xl font-semibold">Así Inició</h3>
+    <p class="text-pretty">
+      El Tecnológico de Estudios Superiores de Ixtapaluca arrancó actividades el
+      13 de septiembre de 1999 mediante decreto del poder Ejecutivo del Estado
+      de México, el cual fue publicado en el mismo año.
+    </p>
+    <br />
+    <p class="text-pretty">
+      Nuestro TESI es un organismo público descentralizado de carácter estatal,
+      con el propósito de contribuir a la consolidación de los programas de
+      desarrollo de educación superior tecnológica en la entidad, aprobado por
+      la Administración del Gobierno Estatal.
+    </p>
+    <br />
+    <p class="text-pretty">
+      Se iniciaron actividades académicas en instalaciones provisionales en la
+      secundaria José Antonio Álzate en la unidad habitacional de San
+      Buenaventura y en el año 2002 en el COBAEM de la misma unidad. Hasta el
+      2005 fueron entregadas las nuevas instalaciones de este Tecnológico,
+      ubicada en el km 7 de la carretera Ixtapaluca-Coatepec, Estado de México.
+    </p>
+  </article>
+
+  <article class="prose lg:prose-xl">
+    <h3 class="text-red-900 text-2xl font-semibold">Las Carreras</h3>
+    <p class="text-pretty">
+      El TESI inició impartiendo las carreras de Ingeniería en Sistemas
+      Computacionales y la Licenciatura en Informática con una matrícula de 103
+      alumnos.
+    </p>
+  </article>
+
+  <article class="prose lg:prose-xl">
+    <h3 class="text-red-900 text-2xl font-semibold">Actualmente</h3>
+    <p class="text-pretty">
+      El Tecnológico cuenta con cerca de 2,000 estudiantes, ofrecemos 7 carreras
+      y una Maestría en Administración:
+    </p>
+    <ul class="ml-3">
+      {
+        Carreras.map((carrera) => (
+          <li class="flex items-center">
+            <Arrow/>
+            {carrera.name}
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="text-pretty">
+      Falta mucho, pero trabajamos de manera constante para convertirnos en una
+      institución de importancia e impacto en la región.
+    </p>
+  </article>
+</Content>

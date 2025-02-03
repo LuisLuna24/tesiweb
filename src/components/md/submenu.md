@@ -1,0 +1,46 @@
+---
+sections:
+  - title: "Acerca de"
+    slug: "/tesi/"
+    titles:
+      - name: "Titular"
+        link: "/tesi/titular"
+      - name: "Antecedentes"
+        link: "/tesi/antecedentes"
+      - name: "Misión, visión y objetivo"
+        link: "/tesi/mision_vision_objetivos"
+      - name: "Funciones"
+        link: "/tesi/funciones"
+      - name: "Marco Jurídico"
+        link: "/tesi/marco_juridico"
+      - name: "Organigrama"
+        link: "/tesi/organigrama"
+      - name: "Directorio"
+        link: "/tesi/directorio"
+      - name: "Ubicación"
+        link: "/tesi/ubicacion"
+      - name: "Convocatorias"
+        link: "/tesi/convocatorias"
+      - name: "Contáctanos"
+        link: "/tesi/contacto"
+  
+  - title: "Oferta educativa"
+    slug: "/oferta_educativa/"
+    titles:
+      - name: "Ingeniería Ambiental"
+        link: "/oferta_educativa/ingenieria_ambiental"
+      - name: "Ingeniería Biomédica"
+        link: "/oferta_educativa/ingenieria_biomedica"
+      - name: "Ingeniería en Sistemas Computacionales"
+        link: "/oferta_educativa/ingenieria_sistemas_computacionales"
+
+  - title: "Control escolar"
+    slug: "/control_escolar/"
+    titles:
+      - name: "Ingeniería Ambiental"
+        link: "/oferta_educativa/ingenieria_ambiental"
+      - name: "Ingeniería Biomédica"
+        link: "/oferta_educativa/ingenieria_biomedica"
+      - name: "Ingeniería en Sistemas Computacionales"
+        link: "/oferta_educativa/ingenieria_sistemas_computacionales"
+---

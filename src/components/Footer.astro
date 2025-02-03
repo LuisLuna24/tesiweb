@@ -1,3 +1,121 @@
-<footer class="w-full p-20 bg-slate-200 mt-20">
+---
+import TesiLogo from "@/icons/TesiLogo.astro";
+import Arrow from "@/icons/arrow.astro";
 
+//año actual
+const anioActual = new Date().getFullYear();
+
+const Conoces = [
+    {
+        title: "Portal del Gobierno del Estado de México",
+        link: "https://edomex.gob.mx/"
+    },
+    {
+        title: "Quejas y Denuncias",
+        link: "https://www.secogem.gob.mx/SAM/sit_atn_mex.asp"
+    },
+    {
+        title: "Comisión Estatal de Mejora Regulatoria",
+        link: "https://cemer.edomex.gob.mx/"
+    },
+    {
+        title: "Información Pública de Oficio Mexiquense",
+        link: "https://infoem2.ipomex.org.mx/portalSO/login"
+    },
+    {
+        title: "Solicitud de Información",
+        link: "https://www.saimex.org.mx/saimex/ciudadano/login.page"
+    },
+];
+
+const Acercas = [
+    {
+        title: "Contáctanos",
+        link: "/contacto"
+    },
+    {
+        title: "Mapa del sitio",
+        link: "/sitemap"
+    },
+    {
+        title: "Avisos legales",
+        link: "/tramites_servicios"
+    },
+];
+
+const Intereses = [
+    {
+        title: "Facebook",
+        link: "https://www.facebook.com/TESIOficial?mibextid=ZbWKwL"
+    },
+    {
+        title: "Instagram",
+        link: "https://www.instagram.com/tesioficial/"
+    },
+    {
+        title: "Secretaría de Educación, Ciencia, Tecnología e Innovación",
+        link: "https://seduc.edomex.gob.mx/"
+    },
+    {
+        title: "Sistema de Información y Gestión Educativa",
+        link: "https://siged.sep.gob.mx/SIGED/"
+    },
+    {
+        title: "Tecnológico Nacional de México",
+        link: "https://www.tecnm.mx/"
+    },
+];
+---
+
+<footer class="w-full px-10 md:px-30 bg-slate-200 py-10 mt-20 flex flex-col gap-5">
+  <article class="w-full grid grid-cols-1 lg:grid-cols-5 md:grid-cols-2 text-red-900 gap-x-0 md:gap-x-10 gap-y-10 lg:gap-y-0">
+    <div>
+        <h3 class="text-xl font-semibold max-lg:text-center mb-2">Conoce el estado</h3>
+        <ul class="flex flex-col gap-2 text-sm underline">
+            {
+                Conoces.map((conoce)=>(
+                    <li class="flex items-center"><Arrow /><a href={conoce.link}>{conoce.title}</a></li>
+                ))
+            }
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold max-lg:text-center mb-2">Acerca del Sitio</h3>
+        <ul class="flex flex-col gap-2 text-sm underline">
+            {
+                Acercas.map((acerca)=>(
+                    <li class="flex items-center"><Arrow /><a href={acerca.link}>{acerca.title}</a></li>
+                ))
+            }
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold max-lg:text-center mb-2">Contacto</h3>
+        <h3 class="text-xl font-semibold max-lg:text-center mb-2 mt-2">Tecnológico de Estudios Superiores de Ixtapaluca.</h3>
+        <ul class="flex flex-col gap-2 text-sm">
+            <li class="flex items-center"><Arrow /><p>Km. 7, Carretera Ixtapaluca-Coatepec, C.P. 56580, Ixtapaluca, Estado de México </p></li>
+            <li class="flex items-center"><Arrow /><p>(55)13148150</p></li>
+            <li class="flex items-center"><Arrow /><p>Correo de Contacto:</p></li>
+            <li class="flex items-center"><p class="font-bold">control.escolar@tesi.edu.mx</p></li>
+        </ul>
+    </div>
+    <div>
+        <h3 class="text-xl font-semibold max-lg:text-center mb-2">Enlaces de Interés</h3>
+        <ul class="flex flex-col gap-2 text-sm underline">
+            {
+                Intereses.map((interes)=>(
+                    <li class="flex items-center"><Arrow /><a href={interes.link}>{interes.title}</a></li>
+                ))
+            }
+        </ul>
+    </div>
+    <div class="lg:col-span-1 md:col-span-2 flex justify-center md:block">
+        <TesiLogo />
+    </div>
+  </article>
+  <article class="w-full text-red-900 flex flex-col justify-center items-center gap-3 mt-5">
+        <h3>Algunos derechos reservados {anioActual}. Gobierno del Estado de México</h3>
+        <img src="/img/adem.webp" alt="" class="w-[300px]">
+        <a href="" class="underline">Creado por la Agencia Digital del Estado de México</a>
+  </article>
 </footer>

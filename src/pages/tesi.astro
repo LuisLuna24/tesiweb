@@ -1,8 +1,70 @@
 ---
-import { ClientRouter } from "astro:transitions";
+import Arrow from "@/icons/arrow.astro";
 import Layout from "../layouts/Layout.astro";
+import Content from "@/components/Content.astro";
+const Items = [
+  {
+    content:
+      "El reconocimiento público como institución de prestigio académico; y el acceso a programas de apoyos institucionales y federales que promuevan a la mejora integral de su personal docente y administrativo, así como equipamiento e infraestructura del Tecnológico.",
+  },
+  {
+    content:
+      "Dirigido a los padres de familia. El que un Programa Académico esté acreditado se garantiza que cumple con los estándares de calidad que respaldarán de manera positiva en el desarrollo profesional de los alumnos.",
+  },
+  {
+    content:
+      "Para los alumnos, tienen la certeza de que lo que aprenden es adecuado y actualizado; además les otorga la oportunidad de obtener becas, con esto tienen la posibilidad de ingresar otras instituciones de educación superior en el extranjero, así como continuar con estudios de posgrado.",
+  },
+  {
+    content:
+      "A egresados les brinda mayores y mejores oportunidades para incorporarse en el mundo laboral, una enseñanza para ser más competitivos, inclusive en el nivel internacional. Al egresar de una institución acreditada les permite la revalidación de estudios y títulos con otros países.",
+  },
+];
 ---
 
 <Layout>
-    Hola Mundo
+  <Content class="flex flex-col gap-5">
+    <h1 class="text-red-900 text-4xl font-bold">Acerca del TESI</h1>
+    <article class="prose lg:prose-xl">
+      <p class="text-pretty">
+        El Tecnológico de Estudios Superiores de Ixtapaluca (TESI), es una
+        Institución Pública que ofrece educación superior de excelencia, con el
+        fin de formar profesionistas, emprendedores e investigadores
+        competentes, con sólida preparación científica, tecnológica y
+        humanística, que contribuyan a elevar la calidad de vida de la sociedad.
+      </p>
+      <br />
+      <p class="text-pretty">
+        El TESI trabaja, esforzándose en todo momento, para conservar la más
+        alta calidad, con estricta atención y continuidad a las actividades que
+        se llevan a cabo, con el propósito de ser un organismo líder.
+      </p>
+      <br />
+      <p class="text-pretty">
+        El TESI está comprometido a brindar a sus estudiantes educación de
+        calidad, por tal motivo se renueva de manera continua por medio de
+        procesos de acreditación, con esto se promueve permanentemente la
+        excelencia. Los beneficios de ser una Universidad Acreditada son:
+      </p>
+      <br>
+      <ul class="ml-3 list-(--my-marker)">
+        {
+          Items.map((carrera) => (
+            <li>
+              {carrera.content}
+            </li>
+          ))
+        }
+      </ul>
+      <br />
+      <p class="text-pretty">
+        Otro compromiso de esta casa de estudios es otorgar apoyo para que los
+        alumnos no deserten por motivos económicos, por esta razón se inició
+        desde hace unos años un programa de estímulos al rendimiento académico,
+        en el que los jóvenes pueden obtener descuentos hasta de un 100% en sus
+        colegiaturas, este programa aplica de manera automática a partir del
+        segundo semestre.
+      </p>
+    </article>
+  </Content>
 </Layout>

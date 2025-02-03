@@ -1,0 +1,98 @@
+---
+import Arrow from "@/icons/arrow.astro";
+import ArrowLeft from "@/icons/ArrowLeft.astro";
+
+const submenu = await Astro.glob("@/components/md/submenu.md");
+
+// Definir los tipos de datos
+type TitleItem = {
+  name: string;
+  link: string;
+};
+
+type Section = {
+  title: string;
+  slug: string;
+  titles: TitleItem[];
+};
+
+// Extraer el Front Matter con los tipos definidos
+const { sections } = submenu[0].frontmatter as { sections: Section[] };
+
+const pathSegments = Astro.url.pathname
+  .toLowerCase()
+  .split('/')
+  .filter(segment => segment.trim() !== '');
+
+const basePath = pathSegments[0] || ''; // Primer segmento (ej: "tesi")
+
+// Buscar coincidencia en los slugs
+const matchedSection = sections.find(section => 
+  section.slug.toLowerCase().trim() === basePath
+);
+
+// Usar el slug original si coincide, o el segmento base
+const currentPageSlug = matchedSection?.slug || basePath;
+---
+<div class="z-10 lg:hidden fixed top-80 left-0">
+  <a id="toggleButtonSub" class="cursor-pointer"><ArrowLeft /></a>
+</div>
+<div
+  id="navsub"
+  class="bg-red-100 rounded-2xl overflow-hidden w-0 lg:min-w-64 max-h-[500px] max-lg:absolute"
+>
+  {
+    sections
+      .filter((section: Section) =>
+        section.slug.toLowerCase().includes(currentPageSlug)
+      )
+      .map((section: Section) => (
+        <div>
+          <h3 class="text-slate-200 bg-red-900 pl-3 text-xl">
+            {section.title}
+          </h3>
+          <ul class="flex flex-col gap-3 mt-3 mb-3">
+            {section.titles.map((item: TitleItem) => (
+              <li class="flex items-center border-b-2 border-b-slate-50 pb-2">
+                <Arrow />
+                <a
+                  class:list={{
+                    "opacity-80": !(
+                      Astro.url.pathname === item.link ||
+                      Astro.url.pathname.startsWith(item.link + "/")
+                    ),
+                    "opacity-100 text-red-900 font-bold":
+                      Astro.url.pathname === item.link ||
+                      Astro.url.pathname.startsWith(item.link + "/"),
+                    "hover:opacity-100 hover:scale-110 transition": true,
+                  }}
+                  href={item.link}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+  }
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const nav = document.querySelector("#navsub") as Element;
+    const button = document.querySelector("#toggleButtonSub") as Element;
+    let open = false;
+
+    button.addEventListener("click", () => {
+      open = !open;
+      if (open) {
+        nav.classList.add("w-auto"); // Ancho del menú y padding
+        nav.classList.remove("w-0");
+      } else {
+        nav.classList.remove("w-auto");
+        nav.classList.add("w-0");
+      }
+    });
+  });
+</script>
